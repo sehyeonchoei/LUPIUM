@@ -42,6 +42,26 @@ $(function () {
         }
     });
 
+    // 메인 배너
+
+    //#banner visualSwiper 시작, 메인 배너 부분
+    var swiper = new Swiper(".visualSwiper", {
+        slidesPerView: 1, // 한 슬라이드에 보여줄 갯수
+        spaceBetween: 0, // 슬라이드 사이 여백
+        autoplay: {     //자동슬라이드 (false-비활성화)
+            delay: 6000, // 시간 설정
+            disableOnInteraction: false, // false-스와이프 후 자동 재생
+        },
+        effect: 'fade', // 페이드 효과 사용
+        speed: 1500, // fade 효과의 전환 시간을 1000ms(1.5초)로 설정
+        loop: true, // 슬라이드 반복 여부
+        navigation: false, // 화살표 버튼 제거
+        pagination: {
+            el: "#visual .swiper-pagination",
+            clickable: false,  // 불렛 버튼 클릭 여부
+        }
+
+    });
 
     // space tab
     $(function () {
@@ -136,7 +156,7 @@ $(function () {
             arrows: false,        //화살표(넘기기버튼) 여부 (boolean) -default:true
             dots: false,          //네비게이션버튼 (boolean) -default:false
         });
-        
+
     });
 
 
@@ -229,7 +249,7 @@ var swiper = new Swiper(".mySwiperReview", {
 
     pagination: {
         el: ".swiper-pagination",
-        clickable: true, // 불릿버튼 클릭 여부
+        clickable: false, // 불릿버튼 클릭 여부
     },
     navigation: {  // 화살표 버튼
         nextEl: ".swiper-button-next",
