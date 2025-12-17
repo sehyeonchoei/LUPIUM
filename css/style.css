@@ -76,7 +76,6 @@ body {
     /* internet explorer */
     -o-text-size-adjust: none;
     /* 예전 opera */
-    overflow-x: hidden;
 }
 
 html {
@@ -144,9 +143,8 @@ h4 {
 } */
 
 #header_wrap {
-    /* width: 1920px;
     height: 900px;
-    margin: 0 auto; */
+    margin: 0 auto;
     /* background: url(../images/mainbanner1.jpg) no-repeat center; */
     /* background-repeat: no-repeat;
     background-position: center;
@@ -156,6 +154,7 @@ h4 {
 }
 
 #header {
+    width: 100%;
     height: 90px;
     position: fixed;
     top: 0;
@@ -166,7 +165,7 @@ h4 {
 }
 
 .inner_header {
-    width: 1920px;
+    width: 100%;
     padding: 0 100px 0;
     box-sizing: border-box;
     height: 90px;
@@ -181,7 +180,7 @@ h4 {
 .inner_header.scrolled {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    color: #303233D;
+    color: #303233;
     /* height: 70px; */
 }
 
@@ -245,19 +244,14 @@ h4 {
     object-fit: cover;
 }
 
-/* #banner .swiper {
+#bannerl .swiper {
     margin-left: auto;
     margin-right: auto;
-} */
-
-#banner .swiper-wrapper,
-#banner .swiper-slide {
-    height: 100%;
 }
 
 /* section1 */
 #section1 {
-    width: 1920px;
+    width: 1320px;
     height: 380px;
     margin: 0 auto;
     padding: 115px 0 115px;
@@ -317,12 +311,15 @@ h4 {
 
 /* section2: about us */
 #section2 {
-    width: 1920px;
     height: 800px;
-    margin: 0 auto;
     padding: 150px 0 150px;
     box-sizing: border-box;
     background-color: #111;
+}
+
+.inner_section2 {
+    width: 1320px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -330,17 +327,17 @@ h4 {
     gap: 65px;
 }
 
-#section2 .about {
+.inner_section2 .about {
     padding-top: 287px;
 }
 
-#section2 .about .line {
+.inner_section2 .about .line {
     border-bottom: 1px solid #fff;
     width: 368px;
     margin: 20px 0 30px;
 }
 
-#section2 .about p {
+.inner_section2 .about p {
     font-size: 24px;
     font-weight: 400;
     line-height: 30px;
@@ -376,7 +373,6 @@ h4 {
 
 /* section3:space */
 #section3 {
-    width: 1920px;
     height: 813px;
     margin: 0 auto;
     background-color: #fff;
@@ -458,7 +454,7 @@ h4 {
 
 /* section4 */
 /* 애니메이션 만들기 */
-@keyframes marquee {
+@keyframes flow {
     0% {
         transform: translateX(0);
     }
@@ -469,10 +465,8 @@ h4 {
 }
 
 #section4 {
-    width: 1920px;
     height: 205px;
-    margin: 0 auto;
-    padding: 30px 0 30px;
+    padding: 30px 0;
     box-sizing: border-box;
     background-color: #fff;
     overflow: hidden;
@@ -485,43 +479,53 @@ h4 {
     left: 0;
     width: 100%;
     pointer-events: none;
+    z-index: 1;
 }
 
 #section4 .lines>div {
     height: 1px;
     background: #303233;
-    margin-bottom: 71px;
+    margin-bottom: 72px;
 }
 
 .flow_wrap {
     position: absolute;
     left: 0;
     display: flex;
+    width: max-content;
     align-items: center;
     white-space: nowrap;
-    gap: 30px;
-    animation: marquee 60s linear infinite;
+    animation: flow 60s linear infinite;
+    will-change: transform;
+    z-index: 2;
+    height: 73px;
 }
 
 .flow {
-    height: 73px;
+    height: 100%;
     display: inline-flex;
     align-items: center;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     gap: 30px;
+    padding-right: 30px;
 }
 
 .flow1 {
     left: 0;
-    top: calc(30px - 1px);
+    top: 30px;
 }
 
 .flow2 {
-    left: -100%;
-    top: calc(30px + 73px - 2px);
+    left: 0;
+    top: 103px;
+    animation-delay: -30s;
 }
 
 .flow li {
+    height: 100%;
+    line-height: 1;
+    /* 높이 계산 오류 방지 */
+    vertical-align: middle;
     display: flex;
     align-items: center;
     color: #111;
@@ -601,7 +605,6 @@ h4 {
 
 /* section5: calendar */
 #section5 {
-    width: 1920px;
     height: 667px;
     margin: 0 auto;
     background-color: #fff;
@@ -757,9 +760,7 @@ h4 {
 
 /* section6: program */
 #section6 {
-    width: 1920px;
     height: 845px;
-    margin: 0 auto;
     text-align: center;
     background-color: #fff;
 }
@@ -999,9 +1000,7 @@ h4 {
 
 /* section8: 입점매장 */
 #section8 {
-    width: 1920px;
     height: 800px;
-    margin: 0 auto;
     padding: 34px 0 34px;
     box-sizing: border-box;
     overflow: hidden;
@@ -1009,6 +1008,12 @@ h4 {
     background-position: top;
     background-color: #111;
     background-blend-mode: color-dodge;
+
+}
+
+.inner_section8 {
+    width: 1320px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     gap: 209px;
@@ -1159,7 +1164,7 @@ h4 {
 
 /* section9: event */
 #section9 {
-    width: 1920px;
+    width: 1320px;
     height: 845px;
     margin: 0 auto;
     padding: 145px 0 110px;
@@ -1191,7 +1196,7 @@ h4 {
 
 /* section10: review */
 #section10 {
-    width: 1920px;
+    width: 1320px;
     height: 590px;
     margin: 0 auto;
     padding: 85px 0 100px;
@@ -1321,14 +1326,6 @@ h4 {
     position: absolute;
 }
 
-.swiper-button-prev {
-    left: -50px;
-}
-
-.swiper-button-next {
-    right: -50px;
-}
-
 .swiper-button-prev img,
 .swiper-button-next img {
     width: 29px;
@@ -1341,12 +1338,11 @@ h4 {
 
 /* section11: direction */
 #section11 {
-    width: 1920px;
     height: 780px;
     margin: 0 auto;
     padding-top: 110px;
     box-sizing: border-box;
-    background-color: fff;
+    background-color: #fff;
 }
 
 .info {
@@ -1430,59 +1426,41 @@ h4 {
 
 /* section12 */
 #section12 {
-    width: 1920px;
     height: 50px;
-    margin: 0 auto;
     background-color: #f0f0f0;
     overflow: hidden;
-    padding: 9px 0 6px;
     box-sizing: border-box;
-}
-
-@keyframes partner {
-    0% {
-        transform: translateX(0);
-    }
-
-    /* ✅ 트랙 너비(200%)의 절반(100%)만큼 이동 */
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-.partner_wrap {
     display: flex;
-    width: 200%;
-    animation: partner 15s linear infinite;
+    align-items: center;
+}
+
+.partner_track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
 }
 
 .partner {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
-    /* 트랙 축소 방지 */
-    width: 50%;
 }
-
 
 .partner li {
     flex-shrink: 0;
-    /* li가 축소되지 않도록 함 */
     margin-right: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .partner li img {
     display: block;
-    width: 80%;
+    width: 90%;
+    height: auto;
+    object-fit: contain;
 }
 
 /* footer */
 #footer_wrap {
-    width: 1920px;
+    /* width: 1920px; */
     height: 265px;
     margin: 0 auto;
     background-color: #111;

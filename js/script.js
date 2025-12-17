@@ -49,7 +49,7 @@ $(function () {
         slidesPerView: 1, // 한 슬라이드에 보여줄 갯수
         spaceBetween: 0, // 슬라이드 사이 여백
         autoplay: {     //자동슬라이드 (false-비활성화)
-            delay: 6000, // 시간 설정
+            delay: 3000, // 시간 설정
             disableOnInteraction: false, // false-스와이프 후 자동 재생
         },
         effect: 'fade', // 페이드 효과 사용
@@ -62,6 +62,7 @@ $(function () {
         }
 
     });
+
 
     // space tab
     $(function () {
@@ -150,9 +151,10 @@ $(function () {
             autoplay: true,      //자동시작
             cssEase: 'linear',   // 등속
             autoplaySpeed: 0,    //자동넘기기 시간(int, 1000ms = 1초)
-            speed: 10000,         //모션 시간 (얼마나 빠른속도로 넘어가는지)(int, 1000ms = 1초)
-            draggable: false,    //리스트 드래그 가능여부 (boolean) -default:true
-            pauseOnFocus: true,  //마우스 포커스 시 슬라이드 멈춤 -default:true
+            speed: 5000,         //모션 시간 (얼마나 빠른속도로 넘어가는지)(int, 1000ms = 1초)
+            draggable: true,    //리스트 드래그 가능여부 (boolean) -default:true
+            pauseOnFocus: false,
+            pauseOnHover: false,  //마우스 포커스 시 슬라이드 멈춤 -default:true
             arrows: false,        //화살표(넘기기버튼) 여부 (boolean) -default:true
             dots: false,          //네비게이션버튼 (boolean) -default:false
         });
@@ -237,7 +239,7 @@ $(function () {
 });
 
 // 리뷰
-var swiper = new Swiper(".mySwiperReview", {
+var swiper = new Swiper(".reviewSwiper", {
     slidesPerView: 4, // 한 슬라이드에 보여줄 갯수
     spaceBetween: 40,  // 슬라이드 사이 여백
     centeredSlides: false,
@@ -249,12 +251,57 @@ var swiper = new Swiper(".mySwiperReview", {
 
     pagination: {
         el: ".swiper-pagination",
-        clickable: false, // 불릿버튼 클릭 여부
+        clickable: true, // 불릿버튼 클릭 여부
     },
     navigation: {  // 화살표 버튼
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+});
+
+
+// 파트너
+const ANIMATION_SPEED = 0.8;
+const LOGO_MARGIN_RIGHT = 80;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.querySelector('.partner_track');
+    const initialList = track.querySelector('.partner');
+
+    if (!track || !initialList) return;
+
+    // 여백 설정 및 초기 너비 계산
+    const applyMargin = (list) => {
+        list.querySelectorAll('li').forEach(li => {
+            li.style.marginRight = `${LOGO_MARGIN_RIGHT}px`;
+        });
+    };
+    applyMargin(initialList);
+
+    let currentX = 0;
+    let isPaused = false;
+
+    function runMarquee() {
+        if (!isPaused) {
+            // 한 리스트의 실제 너비
+            const listWidth = initialList.getBoundingClientRect().width;
+
+            currentX -= ANIMATION_SPEED;
+
+            // 한 세트가 완전히 지나가면 초기화
+            if (Math.abs(currentX) >= listWidth) {
+                currentX = 0;
+            }
+
+            track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        }
+        requestAnimationFrame(runMarquee);
+    }
+
+    // 이미지 로드 대기 후 시작
+    window.addEventListener('load', () => {
+        requestAnimationFrame(runMarquee);
+    });
 });
 
 
