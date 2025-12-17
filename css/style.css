@@ -1199,14 +1199,14 @@ h4 {
     width: 1320px;
     height: 590px;
     margin: 0 auto;
-    padding: 85px 0 100px;
+    padding: 65px 0 100px;
     box-sizing: border-box;
     text-align: center;
     background-color: #fff;
 }
 
 #section10 h2 {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .swiper_wrap {
@@ -1350,6 +1350,7 @@ h4 {
     margin: 0 auto;
     display: flex;
     margin-bottom: 80px;
+    position: relative;
 }
 
 .open,
@@ -1359,6 +1360,23 @@ h4 {
     gap: 60px;
     margin-left: 90px;
     margin-right: 120px;
+}
+
+.open {
+    position: relative;
+    /* margin-right: 60px; */
+}
+
+/* 선 만들기 */
+.open::after {
+    content: "";
+    position: absolute;
+    right: -125px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 110px;
+    background-color: #666;
 }
 
 .open_tit,

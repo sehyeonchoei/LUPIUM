@@ -244,7 +244,7 @@ var swiper = new Swiper(".reviewSwiper", {
     spaceBetween: 40,  // 슬라이드 사이 여백
     centeredSlides: false,
     autoplay: { // 자동 슬라이드 설정 , 비 활성화 시 false
-        delay: 1500, // 시간 설정
+        delay: 2000, // 시간 설정
         disableOnInteraction: false, // false로 설정하면 스와이프 후 자동 재생이 비활성화 되지 않음
     },
     loop: true, // 슬라이드 반복 여부
