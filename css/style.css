@@ -364,7 +364,6 @@ h4 {
     width: 828px;
     height: 500px;
     background-size: 828px 500px;
-    background-image: url(../images/about1.jpg);
     animation: about 15s infinite;
 }
 
