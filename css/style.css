@@ -365,7 +365,7 @@ h4 {
     height: 500px;
     background-size: 828px 500px;
     background-image: url(../images/about1.jpg);
-    /* animation: about 15s infinite; */
+    animation: about 15s infinite;
 }
 
 #section2 .about_img img {
